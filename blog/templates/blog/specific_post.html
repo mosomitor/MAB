@@ -7,7 +7,7 @@
     <meta name="description" content="">
     <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
     <meta name="generator" content="Hugo 0.82.0">
-    <title>My Awesome Blog</title>
+    <title>{{post.title}}</title>
 
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"
 
@@ -71,30 +71,20 @@
 
 <main role="main" class="pl-3">
 
-  <h1 class="pt-5 mt-5 pb-5">Recent Posts</h1>
-
 <div class="album py-5 bg-light">
     <div class="container">
-
-      <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
-        
-        {% for blog in posts.all%}
-
-        <div class="col">
-          <div class="card shadow-sm">
-          	<a href="{% url 'specific_post' blog.id %}"><h2 class="card-title">{{blog.title}}</h2></a>
-            <img class="card-img-top" src="{{blog.image.url}}" />
-        	<div class="card-body">
-        		<p class="card-text">{{blog.get_summary}}</p>
-              	<p class="card-text text-muted" style="font-size: 75%;">{{blog.date}}</p>
+		<div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+          <div class="col">
+        	  <div class="card shadow-sm">
+          		<h2 class="card-title">{{post.title}}</h2>
+            	<img class="card-img-top" src="{{post.image.url}}" height="500" width="500" class="img-fluid">
+        	  <div class="card-body">
+        		<p class="card-text">{{post.text}}</p>
+              	<p class="card-text text-muted" style="font-size: 75%;">{{post.date}}</p>
             </div>
           </div>
         </div>
-      
-        {%endfor%}
-
-      </div>
-    
+    </div>
     </div>
   </div>
 
